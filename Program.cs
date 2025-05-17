@@ -3,8 +3,10 @@ using ContainerOptimization.Services;
 using ContainerOptimization.Utils;
 
 List<int> volumes = InputHelper.ReadIntList("Digite os volumes dos containers separados por vírgula:");
-int capacidadeArmazem = InputHelper.ReadInt("Capacidade dos armazéns:");
-int capacidadeCaminhao = InputHelper.ReadInt("Capacidade dos caminhões:");
+int maiorVolume = volumes.Max();
+
+int capacidadeArmazem = InputHelper.ReadValidCapacity("Capacidade dos armazéns:", maiorVolume);
+int capacidadeCaminhao = InputHelper.ReadValidCapacity("Capacidade dos caminhões:", maiorVolume);
 
 List<Container> containers = volumes.Select(v => new Container(v)).ToList();
 

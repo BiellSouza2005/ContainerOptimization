@@ -29,5 +29,20 @@ namespace ContainerOptimization.Utils
                 Console.WriteLine("Valor inválido. Tente novamente:");
             }
         }
+
+        public static int ReadValidCapacity(string mensagem, int minimo)
+        {
+            int valor;
+            do
+            {
+                valor = ReadInt(mensagem);
+                if (valor < minimo)
+                {
+                    Console.WriteLine($"Erro: O valor informado ({valor}) não pode ser menor que o valor mínimo exigido ({minimo}). Tente novamente.");
+                }
+            } while (valor < minimo);
+
+            return valor;
+        }
     }
 }
